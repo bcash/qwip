@@ -1,0 +1,28 @@
+
+<div id="container">
+
+	<h1>Welcome to Foo<?php
+	
+	global $_SESSION;
+
+	if ( !empty( $_SESSION['profile']['fname'] ) ) {
+		print ", " . $_SESSION['profile']['fname'] . "!</h1>";
+	} else {
+		print "!</h1>";
+	}
+	
+//	print "<p>Your Session Info:</p>";
+	
+//	print "<pre>";
+//	print_r( $_SESSION );
+//	print "</pre>";
+	
+	?>
+
+	<div id="body">
+		<p>The terms foobar /ˈfuːbɑːr/, fubar, or foo, bar, baz and qux (alternatively quux) are sometimes used as placeholder names (also referred to as metasyntactic variables) in computer programming or computer-related documentation.[1] They have been used to name entities such as variables, functions, and commands whose purpose is unimportant and serve only to demonstrate a concept. The words themselves have no meaning in this usage. Foobar is sometimes used alone; foo, bar, and baz are sometimes used in that order, when multiple entities are needed.</p>
+
+		<p>The usage in computer programming examples and pseudocode varies; in certain circles, it is used extensively, but many prefer descriptive names, while others prefer to use single letters. Eric S. Raymond has called it an "important hackerism" alongside kludge and cruft.</p>
+	</div>
+
+</div>

@@ -1,0 +1,7 @@
+{
+	"description" : "Quick Webapps Integration Platform",
+	"name" : "bcash/qwip",
+	"require": {
+		"php": ">=5.2.4"
+	}
+}

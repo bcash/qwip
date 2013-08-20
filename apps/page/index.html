@@ -1,0 +1,147 @@
+<?php
+
+	global $_SESSION;
+
+	$loggedin = false;
+	if ( !empty( $_SESSION['profile']['email'] ) ) {
+		$loggedin = true;
+	}
+
+
+?>
+<div id="container">
+	<div id="body">
+<?php
+
+	if ( isset( $_GET['auth_required'] ) ) {
+
+		$out .= "<div class='alert'><H3>Login Required</H3>";
+		$out .= "<p>This app requires authentication for access.<br><br>";
+		$out .= "Please login and try again.</p></div>";
+
+		print $out;
+		
+	}
+?>
+
+<div class="row">
+	<div class="span12">
+
+	<h3><small>Welcome<?php
+	
+	global $_SESSION;
+
+	if ( $loggedin ) {
+		print ", " . $_SESSION['profile']['name'] . "!";
+	} else {
+		print "!";
+	}
+	
+	?></small></h3>
+	
+<?php
+	
+	$out = '';
+	
+	if ( !$loggedin ) {
+
+		$out =<<<__EOT__
+		
+		<div class="jumbotron">
+		
+		<div class="row-fluid">
+		    <div class="lead offset1 span7">        
+		        <h1>Alpine Kanban</h1>
+		    </div>
+		    <div class="span3">
+		    	<img src="http://alpineinternet.com/wp-content/uploads/2010/09/header_logo_02.gif" align="right">
+		    </div>
+		</div>
+		
+		<div class="row-fluid">
+		    <div class="lead offset1 span6">The Alpine Kanban System is an easy way to securely schedule, produce, QA, and review Alpine projects worldwide.
+		    </div>
+		
+		</div>
+		
+		<div class="row-fluid">
+			<div class="offset4"> 
+				<a class="btn btn-large btn-success" href="{URI}?login">Log in</a>
+			</div>
+		</div>
+		</div>
+
+		<br><br>  
+
+        <div class="row-fluid">
+	        <div class="offset2 span8"> 
+		      <div class="alert alert-info">		
+
+		        <p>TIP: The Alpine Kanban System integrates with your alpineinternet.com ID.</p>
+		        
+		        <p>Your alpineinternet.com ID looks like <i>user@alpineinternet.com</i>.  It is a Google ID.</p>  
+		        
+		        <p>When you login to Google with your alpineinternet.com ID and password,  Google then confirms you are an authenticated user.</p>
+		
+		        <p>If you do not have a alpineinternet.com Google ID, you may not use this system.</p>
+				
+	  	      </div>
+  	      </div>
+      </div>
+
+__EOT__;
+
+
+	} else {
+
+		$out =<<<__EOT__
+		
+		<h3>What is Kanban?</h3>
+
+		<p>Kanban is a system to control the logistical chain from a production point of view.</p>
+
+		<p>Kanban was developed by Taiichi Ohno, at Toyota, to find a system to improve and maintain a high level of production. Kanban is one method through which just-in-time (JIT) production is achieved.</p>
+
+		<p>Kanban uses the rate of demand to control the rate of production, passing demand from the end customer up through the chain of customer-store processes. In 1953, Toyota applied this logic in their main plant machine shop.</p>
+		
+		<p>Toyota's six rules</p>
+<p>
+		<ul>
+			<li>Do not send defective products to the subsequent process</li>
+			<li>The subsequent process withdraws only what is needed</li>
+			<li>Produce only the exact quantity withdrawn by the subsequent process</li>
+			<li>Level the production</li>
+			<li>Kanban is a means of fine tuning</li>
+			<li>Stabilize and rationalize the process</li>
+		</ul>
+</p>		
+<p>Read more about <a href="http://en.wikipedia.org/wiki/Kanban">Kanban</a></p>
+
+<h3>Alpine's Kanban System</h3>
+
+	<p>Alpine's Kanban system is unique in that...</p>
+<p>
+	<ul>
+	<li>Implements a heirarchy of cards below one "key card".</li>
+	<li>This key card is often created by the customer (via email) or a rough project plan.  </li>
+	<li>Any tasks (subcards) required to deliver the key card are created below the key card.  </li>
+	<li>A stack of cards is a dependency tree whereupon only exposed "leaf" nodes can be acted upon.  </li>
+	<li>Cards that have unfinished dependencies are not actionable, therefore they are not shown to the production team. </li>
+	<li>The only cards that should appear in your stack, should be actionable. </li>
+	<li>If a card appears in your stack that is not actionable, create a subcard for that task which must be completed before the current card. </li>
+	</ul>
+</p>	
+__EOT__;
+	}
+
+	$out = str_replace( '{URI}', $_SERVER['REQUEST_URI'], $out );
+
+	print $out;
+
+?>
+
+
+	</div>
+	  </div>
+	</div>
+</div>
