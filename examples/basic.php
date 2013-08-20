@@ -1,28 +1,29 @@
 <?php
 
-	// QWIP - Quick Webapp Integration Platform.  A lightweight webpp host providing authentication, 
-	// themes, routing, and code compartmentalization.
+    // QWIP - Quick Webapp Integration Platform.  A lightweight webpp host providing authentication, 
+    // themes, routing, and code compartmentalization.
 
-	// Basic example - no authentication
+    // Basic example - no authentication
 
-	// Get our path to qwip
-	include( "qwip-0.7/qwip-0.7.class.php" );
+    // Get our path to qwip
+    include( "qwip-0.7/qwip-0.7.class.php" );
 
-	define('APP_HOME', dirname(dirname(dirname(__FILE__))));
+    // Define our homedir
+    define('APP_HOME', dirname(dirname(dirname(__FILE__))) );
 
-	// Instanstiate app handler
-	$q = new qwip(	array( 
-							'app' => APP_HOME . DS . 'public_html' . DS . 'qapps',
-							'lib' => APP_HOME . DS . 'lib',
-							'sys' => APP_HOME . DS . 'lib',
-							'themes' => APP_HOME . DS . 'public_html' . DS . 'themes'
-					 )
-				);  // Pass in new base path, etc.
+    // Instanstiate app handler
+    $q = new qwip(  array( 
+                        'app' => APP_HOME . '/public_html/apps',
+                        'lib' => APP_HOME . '/lib',
+                        'sys' => '/usr/common/lib',
+                        'themes' => APP_HOME . '/public_html/themes'
+                         )
+                    );
 
-	// Start the session
-	$q->session_start();
+    // Start the session
+    $q->session_start();
 
-	// Run the requested app
-	$q->run();
+    // Run the requested app
+    $q->run();
 
 ?>
