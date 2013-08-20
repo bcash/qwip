@@ -1,4 +1,4 @@
-# Qwhat is QWIP
+# What is QWIP?
 
 Qwip stands for a quick webapps integration platform.  A toolkit for people that build and manage sites using PHP.  
 
@@ -70,7 +70,7 @@ First, install composer: http://getcomposer.org/doc/01-basic-usage.md
 ```
 {
     "require": {
-        "bcash/qwip": "1.0.*"
+        "bcash/qwip": "dev-master"
     }
 }
 ```
