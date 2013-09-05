@@ -6,7 +6,7 @@
     // Basic example - no authentication
 
     // Get our path to qwip
-    include( "qwip-0.7/qwip-0.7.class.php" );
+    include( "vendor/bcash/qwip/qwip.php" );
 
     // Define our homedir
     define('APP_HOME', dirname(dirname(dirname(__FILE__))) );
