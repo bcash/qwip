@@ -419,7 +419,7 @@ __EOT__;
         
             // Show default 404 message as a last resort.
             // header('302 Authorization Required');
-            header("Location: /?auth_required=true", TRUE, 302 );
+            header("Location: /auth_required.html", TRUE, 302 );
             
         }
     
